@@ -1,0 +1,28 @@
+MATCHLAB — wersja instalowalna (PWA)
+
+W PACZCE:
+- index.html — aplikacja MatchLab
+- manifest.webmanifest — nazwa i ikona aplikacji
+- sw.js — cache/offline po pierwszym otwarciu
+- icons/ — ikony 192 i 512 px
+
+WAŻNE:
+Żeby zainstalować MatchLab jak aplikację na Androidzie i laptopie, pliki muszą być opublikowane pod adresem HTTPS. Samo otwarcie index.html z pamięci telefonu/komputera nie wystarczy do instalacji PWA.
+
+NAJPROSTSZA OPCJA: GitHub Pages
+1. Zaloguj się lub załóż konto na github.com.
+2. Utwórz nowe repozytorium (np. matchlab).
+3. Wgraj do niego wszystkie pliki z tej paczki, zachowując strukturę katalogu icons/.
+4. W repozytorium wejdź w Settings → Pages.
+5. W sekcji Build and deployment wybierz Deploy from a branch, branch main i folder /(root), następnie Save.
+6. Po publikacji GitHub pokaże adres strony HTTPS. Otwórz go na telefonie i laptopie.
+
+INSTALACJA:
+- Android/Samsung: otwórz adres w Chrome → menu ⋮ → „Zainstaluj aplikację” lub „Dodaj do ekranu głównego”.
+- Laptop: otwórz adres w Chrome lub Edge → ikona instalacji przy pasku adresu albo menu przeglądarki → „Zainstaluj MatchLab”.
+
+DANE I PRYWATNOŚĆ:
+Analizy nadal są zapisywane lokalnie w przeglądarce. To oznacza, że nie synchronizują się automatycznie między telefonem a laptopem. Używaj w MatchLab funkcji Eksport danych i Import danych, aby przenosić kopię JSON między urządzeniami. Nie wrzucaj prywatnych danych do publicznego repozytorium; pliki aplikacji nie zawierają twoich analiz, ale strona opublikowana przez GitHub Pages jest publicznie dostępna dla osób znających adres.
+
+
+Ikony MatchLab: folder icons/ zawiera pliki PNG w rozmiarach 48, 72, 96, 144, 152, 180, 192 i 512 px.

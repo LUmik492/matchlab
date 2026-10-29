@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07110d">
+<meta name="description" content="Prywatne centrum analiz przedmeczowych — MatchLab">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>MatchLab — analizy przedmeczowe</title>
+<style>
+:root{--bg:#07110d;--panel:#0e1b15;--panel2:#12251b;--line:#254333;--text:#edf7ef;--muted:#9bb2a1;--green:#57d68d;--green2:#1f8b55;--danger:#ff7272;--gold:#e9c46a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10271b 0,#07110d 55%);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:1280px;margin:auto;padding:20px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#68e59a,#19764a);display:grid;place-items:center;color:#06120b;font-size:24px;font-weight:900;box-shadow:0 8px 25px #2dbb6a30}.brand h1{font-size:22px;margin:0;letter-spacing:.2px}.brand p{margin:0;color:var(--muted);font-size:12px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#14261c;color:var(--text);font-weight:650}.btn:hover{filter:brightness(1.15)}.btn.primary{background:var(--green);border-color:var(--green);color:#062011}.btn.danger{color:#ffb1b1;border-color:#673737;background:#2a1717}.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px}.sidebar,.panel,.card{background:linear-gradient(180deg,#102017,#0b1711);border:1px solid var(--line);border-radius:16px}.sidebar{padding:12px;height:max-content;position:sticky;top:12px}.navbtn{display:flex;width:100%;gap:10px;align-items:center;padding:12px;border:0;border-radius:10px;background:transparent;color:var(--muted);text-align:left;margin:3px 0}.navbtn.active,.navbtn:hover{background:#193524;color:var(--text)}.navbtn.active{box-shadow:inset 3px 0 var(--green)}.side-note{border-top:1px solid var(--line);margin-top:14px;padding:14px 8px 4px;color:var(--muted);font-size:12px}.main{min-width:0}.pagehead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 16px}.pagehead h2{margin:0;font-size:25px}.pagehead p{margin:3px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.panel{padding:18px;margin-bottom:14px}.panel h3{margin:0 0 14px;font-size:16px}.muted{color:var(--muted)}.small{font-size:12px;color:var(--muted)}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;min-width:0}.field label{font-size:12px;color:#b7cbbd;font-weight:700;letter-spacing:.25px}.field input,.field select,.field textarea,.inline-input{width:100%;background:#07130c;border:1px solid #2a4936;border-radius:9px;color:var(--text);padding:10px 11px;outline:none;min-width:0}.field input:focus,.field textarea:focus,.field select:focus,.inline-input:focus{border-color:var(--green);box-shadow:0 0 0 3px #57d68d1c}.field textarea{min-height:96px;resize:vertical}.fields-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fields-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.matchhero{padding:20px;border:1px solid #2a5138;border-radius:16px;background:linear-gradient(120deg,#102a1b,#0b1811);margin-bottom:14px}.teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}.team{text-align:center;min-width:0}.crest{width:76px;height:76px;border-radius:50%;object-fit:contain;background:#e8f3eb;padding:7px;border:2px solid #38664a;display:block;margin:0 auto 9px}.crest-placeholder{width:76px;height:76px;border-radius:50%;background:#1b3826;border:1px dashed #5c8c6c;display:grid;place-items:center;margin:0 auto 9px;font-size:28px;color:#8fcba2}.team strong{display:block;font-size:17px;overflow-wrap:anywhere}.versus{font-size:12px;color:var(--muted);font-weight:900;letter-spacing:2px}.matchmeta{text-align:center;margin-top:14px;color:var(--muted);font-size:13px}.upload{font-size:11px;color:var(--muted);margin-top:8px}.upload input{font-size:11px;padding:4px;background:#0a160e;max-width:100%}.stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.stats-team{padding:14px;border:1px solid var(--line);border-radius:12px;background:#0a160f}.stats-team h4{margin:0 0 12px}.statrow{display:grid;grid-template-columns:1fr 85px;align-items:center;gap:10px;margin:9px 0}.statrow label{font-size:13px;color:#c2d5c7}.statrow input{background:#07110d;border:1px solid #2a4936;color:var(--text);border-radius:7px;padding:8px;width:100%;min-width:0}.pitch{position:relative;overflow:hidden;border:2px solid #75a980;border-radius:10px;aspect-ratio:1.35;background:repeating-linear-gradient(90deg,#1b6a3d 0,#1b6a3d 12.5%,#1d7442 12.5%,#1d7442 25%);max-width:700px;margin:auto}.pitch:before{content:"";position:absolute;inset:8%;border:1px solid #b9e4c2a8}.pitch:after{content:"";position:absolute;left:50%;top:8%;bottom:8%;border-left:1px solid #b9e4c2a8}.center-circle{position:absolute;left:50%;top:50%;width:23%;aspect-ratio:1;border:1px solid #b9e4c2a8;border-radius:50%;transform:translate(-50%,-50%)}.boxarea{position:absolute;left:30%;width:40%;height:16%;border:1px solid #b9e4c2a8}.boxarea.top{top:8%;border-top:0}.boxarea.bottom{bottom:8%;border-bottom:0}.player-slot{position:absolute;transform:translate(-50%,-50%);width:clamp(58px,12%,88px);text-align:center;z-index:2}.player-slot input{width:100%;text-align:center;padding:4px 3px;font-size:10px;background:#092715e8;color:white;border:1px solid #a9e8bb;border-radius:6px;box-shadow:0 2px 8px #001a0a80}.player-photo{display:block;width:25px;height:25px;object-fit:cover;border-radius:50%;border:1px solid #d3f4dc;margin:0 auto 2px;background:#123}.photo-pick{display:block;font-size:9px!important;text-align:center;color:#effff3;cursor:pointer;margin-top:2px}.photo-pick input{display:none}.shirt{width:24px;height:24px;border-radius:8px 8px 4px 4px;background:#eaf6ec;color:#15552f;font-size:11px;font-weight:900;display:grid;place-items:center;margin:0 auto 3px;border:1px solid #174d2b}.pitch-note{text-align:center;margin:10px 0 0}.list{display:flex;flex-direction:column;gap:8px}.archive-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:11px;background:#0a160f}.archive-item strong{display:block}.archive-item .meta{font-size:12px;color:var(--muted)}.archive-actions{display:flex;gap:6px;flex-wrap:wrap}.mini{padding:7px 9px;font-size:12px}.empty{padding:28px;text-align:center;color:var(--muted);border:1px dashed #31523b;border-radius:12px}.pill{display:inline-block;border-radius:999px;padding:3px 8px;font-size:11px;background:#183b26;color:#a8f0be}.hidden{display:none!important}.section-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.playerlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.playerline{display:flex;gap:8px;align-items:center}.playerline input{flex:1;min-width:0;background:#07130c;border:1px solid #2a4936;border-radius:8px;padding:8px;color:var(--text)}.playerline button{padding:7px 9px}.footer{margin:22px 0 4px;text-align:center;color:#6f8c79;font-size:11px}
+@media(max-width:800px){.app{padding:12px}.layout{grid-template-columns:1fr}.sidebar{position:static;display:flex;overflow:auto;gap:4px;padding:7px}.navbtn{white-space:nowrap;width:auto;margin:0;padding:10px}.side-note{display:none}.pagehead h2{font-size:22px}.panel{padding:14px}.grid{grid-template-columns:1fr}.crest,.crest-placeholder{width:58px;height:58px}.team strong{font-size:14px}.matchhero{padding:14px}.topbar{align-items:flex-start}.brand h1{font-size:19px}.top-actions .btn{padding:8px 10px;font-size:12px}.stats-grid{grid-template-columns:1fr}.fields-3{grid-template-columns:1fr 1fr}.player-slot{width:clamp(48px,14%,68px)}.player-slot input{font-size:9px}.shirt{width:21px;height:21px}.archive-item{align-items:flex-start;flex-direction:column}.archive-actions{width:100%}.archive-actions button{flex:1}.teams{gap:8px}}
+@media(max-width:420px){.fields-2{grid-template-columns:1fr}.fields-3{grid-template-columns:1fr 1fr}.brand p{display:none}.playerlist{grid-template-columns:1fr}.statrow{grid-template-columns:1fr 75px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">M</div><div><h1>MatchLab</h1><p>Twoje prywatne centrum analiz przedmeczowych</p></div></div>
+  <div class="top-actions"><button class="btn" id="exportBtn">↗ Eksport danych</button><button class="btn" id="importBtn">↙ Import danych</button><input id="importFile" type="file" accept="application/json" class="hidden"></div>
+</header>
+<div class="layout">
+<aside class="sidebar">
+  <button class="navbtn active" data-page="editor">✚ <span>Nowa analiza</span></button>
+  <button class="navbtn" data-page="archive">▤ <span>Archiwum</span></button>
+  <button class="navbtn" data-page="guide">ⓘ <span>Jak korzystać</span></button>
+  <div class="side-note">🔒 Dane są zapisywane w tej przeglądarce na Twoim urządzeniu. Eksportuj kopię zapasową.</div>
+</aside>
+<main class="main">
+<section id="editorPage">
+  <div class="pagehead"><div><h2 id="editorTitle">Nowa analiza</h2><p>Wprowadź dane, przygotuj prognozę i zapisz ją w archiwum.</p></div><span class="pill" id="saveStatus">Niezapisana</span></div>
+  <form id="analysisForm">
+  <input type="hidden" id="analysisId">
+  <div class="matchhero">
+    <div class="teams">
+      <div class="team"><div id="homeCrestWrap" class="crest-placeholder">⚽</div><strong id="homePreview">Gospodarze</strong><div class="upload"><label>Dodaj herb<br><input type="file" id="homeCrestFile" accept="image/*"></label></div></div>
+      <div class="versus">VS</div>
+      <div class="team"><div id="awayCrestWrap" class="crest-placeholder">⚽</div><strong id="awayPreview">Goście</strong><div class="upload"><label>Dodaj herb<br><input type="file" id="awayCrestFile" accept="image/*"></label></div></div>
+    </div>
+    <div class="matchmeta" id="matchMetaPreview">Liga • data i godzina</div>
+  </div>
+  <div class="panel">
+    <h3>📅 Informacje o meczu</h3>
+    <div class="fields-2">
+      <div class="field"><label for="competition">ROZGRYWKI / LIGA</label><input id="competition" placeholder="np. Premier League"></div>
+      <div class="field"><label for="matchDate">DATA I GODZINA</label><input id="matchDate" type="datetime-local"></div>
+      <div class="field"><label for="homeTeam">GOSPODARZE</label><input id="homeTeam" required placeholder="np. Liverpool"></div>
+      <div class="field"><label for="awayTeam">GOŚCIE</label><input id="awayTeam" required placeholder="np. Arsenal"></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>📊 Statystyki przed meczem</h3>
+    <p class="small">Wpisz dane dla obu drużyn. Zostaną zapisane razem z analizą.</p>
+    <div class="stats-grid">
+      <div class="stats-team"><h4 id="homeStatsTitle">Gospodarze</h4><div id="homeStats"></div></div>
+      <div class="stats-team"><h4 id="awayStatsTitle">Goście</h4><div id="awayStats"></div></div>
+    </div>
+    <div class="fields-2" style="margin-top:14px">
+      <div class="field"><label>OSTATNIE 5 MECZÓW — GOSPODARZE</label><input id="homeForm" placeholder="np. W-W-R-P-W"></div>
+      <div class="field"><label>OSTATNIE 5 MECZÓW — GOŚCIE</label><input id="awayForm" placeholder="np. W-R-W-W-P"></div>
+      <div class="field"><label>NIEOBECNI — GOSPODARZE</label><textarea id="homeAbsences" placeholder="Kontuzje, zawieszenia, wątpliwi..."></textarea></div>
+      <div class="field"><label>NIEOBECNI — GOŚCIE</label><textarea id="awayAbsences" placeholder="Kontuzje, zawieszenia, wątpliwi..."></textarea></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>👕 Przewidywany skład — gospodarze</h3>
+    <div class="fields-2"><div class="field"><label>FORMACJA</label><select id="homeFormation"><option>4-3-3</option><option>4-2-3-1</option><option>4-4-2</option><option>3-5-2</option><option>3-4-3</option><option>4-1-4-1</option><option>5-3-2</option><option>5-4-1</option></select></div><div class="field"><label>BRAMKARZ</label><input id="homeGK" placeholder="Imię i nazwisko"></div></div>
+    <div id="homePitch" class="pitch"><div class="center-circle"></div><div class="boxarea top"></div><div class="boxarea bottom"></div></div>
+    <p class="pitch-note small">Kliknij pola na boisku i wpisz nazwiska. To poglądowy układ — pozycje można uzupełnić ręcznie.</p>
+    <div class="field" style="margin-top:12px"><label>REZERWOWI / DODATKOWE UWAGI</label><textarea id="homeBench" placeholder="Zawodnicy rezerwowi, wątpliwości dotyczące składu..."></textarea></div>
+  </div>
+  <div class="panel">
+    <h3>👕 Przewidywany skład — goście</h3>
+    <div class="fields-2"><div class="field"><label>FORMACJA</label><select id="awayFormation"><option>4-3-3</option><option>4-2-3-1</option><option>4-4-2</option><option>3-5-2</option><option>3-4-3</option><option>4-1-4-1</option><option>5-3-2</option><option>5-4-1</option></select></div><div class="field"><label>BRAMKARZ</label><input id="awayGK" placeholder="Imię i nazwisko"></div></div>
+    <div id="awayPitch" class="pitch"><div class="center-circle"></div><div class="boxarea top"></div><div class="boxarea bottom"></div></div>
+    <p class="pitch-note small">Wpisz przewidywaną jedenastkę w polach rozmieszczonych na boisku.</p>
+    <div class="field" style="margin-top:12px"><label>REZERWOWI / DODATKOWE UWAGI</label><textarea id="awayBench" placeholder="Zawodnicy rezerwowi, wątpliwości dotyczące składu..."></textarea></div>
+  </div>
+  <div class="panel">
+    <h3>🔮 Twoja prognoza</h3>
+    <div class="fields-3">
+      <div class="field"><label>WYNIK GOSPODARZY</label><input id="predHome" type="number" min="0" max="30" placeholder="2"></div>
+      <div class="field"><label>WYNIK GOŚCI</label><input id="predAway" type="number" min="0" max="30" placeholder="1"></div>
+      <div class="field"><label>PEWNOŚĆ PROGNOZY</label><select id="confidence"><option value="">Wybierz</option><option>Niska</option><option>Średnia</option><option>Wysoka</option></select></div>
+    </div>
+    <div class="fields-2">
+      <div class="field"><label>PRZEWIDYWANI STRZELCY</label><input id="scorers" placeholder="np. Salah, Isak"></div>
+      <div class="field"><label>INNY TYP / ZDARZENIE</label><input id="otherPrediction" placeholder="np. obie drużyny strzelą"></div>
+    </div>
+    <div class="field"><label>UZASADNIENIE I WŁASNE NOTATKI</label><textarea id="notes" placeholder="Dlaczego przewidujesz taki wynik? Co może zadecydować o meczu?"></textarea></div>
+  </div>
+  <div class="panel">
+    <h3>✅ Po meczu — uzupełnij później</h3>
+    <div class="fields-2">
+      <div class="field"><label>RZECZYWISTY WYNIK GOSPODARZY</label><input id="actualHome" type="number" min="0" max="30" placeholder="Wpisz po meczu"></div>
+      <div class="field"><label>RZECZYWISTY WYNIK GOŚCI</label><input id="actualAway" type="number" min="0" max="30" placeholder="Wpisz po meczu"></div>
+    </div>
+    <div class="field"><label>WNIOSKI PO MECZU</label><textarea id="postNotes" placeholder="Co przewidziałeś dobrze, a co Cię zaskoczyło?"></textarea></div>
+  </div>
+  <div class="section-actions"><button class="btn primary" type="submit">💾 Zapisz analizę</button><button class="btn" type="button" id="newBtn">＋ Wyczyść i rozpocznij nową</button></div>
+  </form>
+</section>
+<section id="archivePage" class="hidden">
+  <div class="pagehead"><div><h2>Archiwum analiz</h2><p>Wróć do poprzednich prognoz i porównaj je z wynikami.</p></div><button class="btn primary" id="archiveNew">＋ Nowa analiza</button></div>
+  <div class="panel"><div class="fields-2"><div class="field"><label>SZUKAJ MECZU LUB LIGI</label><input id="searchArchive" placeholder="np. Liverpool, Premier League"></div><div class="field"><label>SORTOWANIE</label><select id="sortArchive"><option value="new">Najnowsze pierwsze</option><option value="old">Najstarsze pierwsze</option></select></div></div><div id="archiveList" class="list"></div></div>
+</section>
+<section id="guidePage" class="hidden">
+  <div class="pagehead"><div><h2>Jak korzystać</h2><p>Krótka instrukcja obsługi MatchLab.</p></div></div>
+  <div class="panel"><h3>1. Utwórz analizę</h3><p>W sekcji „Nowa analiza” wpisz ligę, datę i nazwy drużyn. Herby możesz dodać z plików na urządzeniu.</p><h3>2. Wprowadź statystyki</h3><p>Wszystkie pola są ręczne. Możesz wpisywać np. gole na mecz, gole stracone, xG, xGA, strzały, posiadanie piłki, czyste konta i bezpośrednie spotkania.</p><h3>3. Ustaw przewidywane składy</h3><p>Wpisz nazwiska w polach na boisku oraz bramkarza, formację i rezerwowych. Pod każdym polem zawodnika kliknij „📷 zdjęcie”, aby dodać jego zdjęcie.</p><h3>4. Zapisz prognozę</h3><p>Dodaj wynik, strzelców i uzasadnienie, a następnie kliknij „Zapisz analizę”. Po meczu możesz wrócić do wpisu i uzupełnić rzeczywisty wynik.</p><h3>5. Zrób kopię zapasową</h3><p>„Eksport danych” pobiera plik JSON z zapisanymi analizami. Przechowuj go w bezpiecznym miejscu. „Import danych” pozwala przywrócić kopię.</p><p class="small">Ważne: dane pozostają w lokalnej pamięci przeglądarki na danym urządzeniu. Nie synchronizują się automatycznie między telefonem a laptopem. Do synchronizacji potrzebna byłaby wersja z kontem i bazą danych.</p></div>
+</section>
+</main>
+</div>
+<div class="footer">MATCHLAB • Prywatny organizer analiz piłkarskich • Dane przechowywane lokalnie</div>
+</div>
+<script>
+const STAT_FIELDS=[
+ ['avgGoals','Gole strzelone / mecz'],['avgConceded','Gole stracone / mecz'],['xg','xG / mecz'],['xga','xGA / mecz'],['shots','Strzały / mecz'],['possession','Posiadanie piłki (%)'],['cleanSheets','Czyste konta'],['h2h','Ostatnie H2H — wynik']
+];
+const $=id=>document.getElementById(id);
+let homeCrest='',awayCrest='',currentPage='editor';
+let playerPhotos={home:Array(11).fill(''),away:Array(11).fill('')};
+const fields=['competition','matchDate','homeTeam','awayTeam','homeForm','awayForm','homeAbsences','awayAbsences','homeFormation','homeGK','homeBench','awayFormation','awayGK','awayBench','predHome','predAway','confidence','scorers','otherPrediction','notes','actualHome','actualAway','postNotes'];
+const statIds=['homeStats','awayStats'];
+const pitchPositions=[
+ [50,89],[17,72],[39,75],[61,75],[83,72],[26,51],[50,58],[74,51],[20,30],[50,23],[80,30]
+];
+function makeStats(){
+ for(const side of ['home','away']){
+  const root=$(side+'Stats'); root.innerHTML='';
+  STAT_FIELDS.forEach(([key,label])=>{const row=document.createElement('div');row.className='statrow';row.innerHTML=`<label>${label}</label><input data-stat="${key}" data-side="${side}" aria-label="${label}" placeholder="—">`;root.appendChild(row)});
+ }
+}
+function makePitch(side){
+ const pitch=$(side+'Pitch');
+ pitch.querySelectorAll('.player-slot').forEach(e=>e.remove());
+ pitchPositions.forEach((pos,i)=>{const slot=document.createElement('div');slot.className='player-slot';slot.style.left=pos[0]+'%';slot.style.top=pos[1]+'%';slot.innerHTML=`<img class="player-photo" data-photo-preview="${i}" data-side="${side}" alt="" style="display:none"><div class="shirt">${i===0?'GK':i+1}</div><input maxlength="36" data-player="${i}" data-side="${side}" placeholder="${i===0?'Bramkarz':'Zawodnik '+(i+1)}" aria-label="Zawodnik ${i+1} ${side==='home'?'gospodarzy':'gości'}"><label class="photo-pick">📷 zdjęcie<input type="file" accept="image/*" data-player-photo="${i}" data-side="${side}"></label>`;pitch.appendChild(slot)});
+}
+makeStats();makePitch('home');makePitch('away');
+document.querySelectorAll('[data-player-photo]').forEach(input=>input.addEventListener('change',e=>{const side=e.target.dataset.side,i=Number(e.target.dataset.playerPhoto);fileToData(e.target.files[0],data=>{playerPhotos[side][i]=data;const img=document.querySelector(`[data-photo-preview="${i}"][data-side="${side}"]`);img.src=data;img.style.display='block';})}));
+function setPage(page){currentPage=page;['editor','archive','guide'].forEach(p=>$(p+'Page').classList.toggle('hidden',p!==page));document.querySelectorAll('.navbtn').forEach(b=>b.classList.toggle('active',b.dataset.page===page));if(page==='archive')renderArchive();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.navbtn').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));
+function preview(){ $('homePreview').textContent=$('homeTeam').value||'Gospodarze';$('awayPreview').textContent=$('awayTeam').value||'Goście';$('homeStatsTitle').textContent=$('homeTeam').value||'Gospodarze';$('awayStatsTitle').textContent=$('awayTeam').value||'Goście';let d=$('matchDate').value?new Date($('matchDate').value).toLocaleString('pl-PL',{dateStyle:'medium',timeStyle:'short'}):'Data do ustalenia';$('matchMetaPreview').textContent=[$('competition').value||'Rozgrywki niepodane',d].join(' • ')}
+['homeTeam','awayTeam','competition','matchDate'].forEach(id=>$(id).addEventListener('input',preview));
+function fileToData(file,callback){if(!file)return;const reader=new FileReader();reader.onload=()=>callback(reader.result);reader.readAsDataURL(file)}
+function showCrest(side,data){if(side==='home')homeCrest=data;else awayCrest=data;const wrap=$(side+'CrestWrap');wrap.innerHTML='';if(data){const img=document.createElement('img');img.src=data;img.className='crest';img.alt='Herb '+$(side+'Team').value;wrap.replaceWith(img);img.id=side+'CrestWrap'}else{wrap.className='crest-placeholder';wrap.textContent='⚽'}}
+['home','away'].forEach(side=>$(side+'CrestFile').addEventListener('change',e=>fileToData(e.target.files[0],data=>showCrest(side,data))));
+function readPlayers(side){return [...document.querySelectorAll(`[data-player][data-side="${side}"]`)].map(i=>i.value)}
+function readStats(side){const out={};document.querySelectorAll(`[data-stat][data-side="${side}"]`).forEach(i=>out[i.dataset.stat]=i.value);return out}
+function collect(){const data={id:$('analysisId').value||String(Date.now()),createdAt:new Date().toISOString(),homeCrest,awayCrest,fields:{},stats:{home:readStats('home'),away:readStats('away')},players:{home:readPlayers('home'),away:readPlayers('away')},playerPhotos};fields.forEach(id=>data.fields[id]=$(id).value);return data}
+function getAll(){try{return JSON.parse(localStorage.getItem('matchlab_analyses')||'[]')}catch{return []}}
+function putAll(arr){localStorage.setItem('matchlab_analyses',JSON.stringify(arr))}
+function saveCurrent(e){if(e)e.preventDefault();if(!$('homeTeam').value.trim()||!$('awayTeam').value.trim()){alert('Wpisz nazwy obu drużyn.');return}const d=collect(),all=getAll(),idx=all.findIndex(x=>x.id===d.id);if(idx>=0){d.createdAt=all[idx].createdAt;all[idx]=d}else all.unshift(d);try{putAll(all);$('analysisId').value=d.id;$('saveStatus').textContent='Zapisano ✓';$('editorTitle').textContent='Edytujesz analizę';renderArchive()}catch(err){alert('Nie udało się zapisać. Prawdopodobnie pliki herbów są zbyt duże. Spróbuj użyć mniejszych obrazów.')} }
+$('analysisForm').addEventListener('submit',saveCurrent);
+function clearForm(){if(!confirm('Rozpocząć nową analizę? Niezapisane zmiany zostaną utracone.'))return;$('analysisForm').reset();$('analysisId').value='';homeCrest='';awayCrest='';playerPhotos={home:Array(11).fill(''),away:Array(11).fill('')};document.querySelectorAll('[data-photo-preview]').forEach(img=>{img.src='';img.style.display='none'});document.querySelectorAll('[data-player-photo]').forEach(i=>i.value='');restoreCrestPlaceholder('home');restoreCrestPlaceholder('away');document.querySelectorAll('[data-stat]').forEach(i=>i.value='');document.querySelectorAll('[data-player]').forEach(i=>i.value='');$('saveStatus').textContent='Niezapisana';$('editorTitle').textContent='Nowa analiza';preview();window.scrollTo({top:0,behavior:'smooth'})}
+function restoreCrestPlaceholder(side){let el=$(side+'CrestWrap');if(el.tagName==='IMG'){const n=document.createElement('div');n.id=side+'CrestWrap';n.className='crest-placeholder';n.textContent='⚽';el.replaceWith(n)}else{el.className='crest-placeholder';el.textContent='⚽'}$(side+'CrestFile').value=''}
+$('newBtn').addEventListener('click',clearForm);$('archiveNew').addEventListener('click',()=>{clearForm();setPage('editor')});
+function safe(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderArchive(){const list=$('archiveList'),q=$('searchArchive').value.toLowerCase(),sort=$('sortArchive').value;let all=getAll().filter(d=>(d.fields.homeTeam+' '+d.fields.awayTeam+' '+d.fields.competition).toLowerCase().includes(q));all.sort((a,b)=>{let da=a.fields.matchDate||a.createdAt,db=b.fields.matchDate||b.createdAt;return sort==='new'?db.localeCompare(da):da.localeCompare(db)});list.innerHTML='';if(!all.length){list.innerHTML='<div class="empty">Nie masz jeszcze zapisanych analiz.<br>Utwórz pierwszą w sekcji „Nowa analiza”.</div>';return}all.forEach(d=>{const f=d.fields,actual=f.actualHome!==''&&f.actualAway!==''?` • Wynik: ${safe(f.actualHome)}:${safe(f.actualAway)}`:' • Wynik nieuzupełniony';const item=document.createElement('div');item.className='archive-item';item.innerHTML=`<div><strong>${safe(f.homeTeam)} vs ${safe(f.awayTeam)}</strong><div class="meta">${safe(f.competition||'Bez ligi')} • ${safe(f.matchDate?new Date(f.matchDate).toLocaleString('pl-PL',{dateStyle:'medium',timeStyle:'short'}):'Bez daty')}${actual}</div><div class="meta">Prognoza: ${f.predHome!==''&&f.predAway!==''?safe(f.predHome)+':'+safe(f.predAway):'brak'}</div></div><div class="archive-actions"><button class="btn mini primary" data-open="${safe(d.id)}">Otwórz</button><button class="btn mini" data-copy="${safe(d.id)}">Duplikuj</button><button class="btn mini danger" data-delete="${safe(d.id)}">Usuń</button></div>`;list.appendChild(item)});list.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>loadAnalysis(b.dataset.open));list.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>{const d=getAll().find(x=>x.id===b.dataset.copy);if(d){loadData(d);$('analysisId').value='';$('editorTitle').textContent='Nowa analiza — kopia';$('saveStatus').textContent='Niezapisana';setPage('editor')}});list.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{if(confirm('Usunąć tę analizę?')){putAll(getAll().filter(x=>x.id!==b.dataset.delete));renderArchive()}})}
+$('searchArchive').addEventListener('input',renderArchive);$('sortArchive').addEventListener('change',renderArchive);
+function loadAnalysis(id){const d=getAll().find(x=>x.id===id);if(d){loadData(d);setPage('editor');$('editorTitle').textContent='Edytujesz analizę';$('saveStatus').textContent='Zapisano wcześniej'}}
+function loadData(d){$('analysisForm').reset();$('analysisId').value=d.id;fields.forEach(id=>$(id).value=d.fields[id]??'');homeCrest=d.homeCrest||'';awayCrest=d.awayCrest||'';showCrest('home',homeCrest);showCrest('away',awayCrest);['home','away'].forEach(side=>{STAT_FIELDS.forEach(([key])=>{const el=document.querySelector(`[data-stat="${key}"][data-side="${side}"]`);el.value=(d.stats?.[side]||{})[key]??''});document.querySelectorAll(`[data-player][data-side="${side}"]`).forEach((el,i)=>el.value=(d.players?.[side]||[])[i]||'');playerPhotos[side]=(d.playerPhotos?.[side]||Array(11).fill('')).slice(0,11);while(playerPhotos[side].length<11)playerPhotos[side].push('');document.querySelectorAll(`[data-photo-preview][data-side="${side}"]`).forEach((img,i)=>{img.src=playerPhotos[side][i]||'';img.style.display=playerPhotos[side][i]?'block':'none'});document.querySelectorAll(`[data-player-photo][data-side="${side}"]`).forEach(i=>i.value='')});preview();$('homeCrestFile').value='';$('awayCrestFile').value=''}
+$('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({format:'MatchLab backup',version:1,analyses:getAll()},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='matchlab-kopia.json';a.click();URL.revokeObjectURL(a.href)});
+$('importBtn').addEventListener('click',()=>$('importFile').click());$('importFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const obj=JSON.parse(await file.text()),arr=Array.isArray(obj)?obj:obj.analyses;if(!Array.isArray(arr))throw Error();if(confirm(`Zaimportować ${arr.length} analiz? Istniejące wpisy o tych samych ID zostaną zastąpione.`)){const map=new Map(getAll().map(d=>[d.id,d]));arr.forEach(d=>map.set(d.id,d));putAll([...map.values()]);renderArchive();alert('Import zakończony.')}}catch{alert('Nie udało się odczytać pliku. Wybierz kopię JSON z MatchLab.')}e.target.value=''});
+preview();
+</script>
+<script>
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(err => console.warn("Service worker registration failed", err)));
+}
+</script>
+</body>
+</html>
